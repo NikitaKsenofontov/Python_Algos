@@ -14,3 +14,23 @@
 Функцию random() использовать можно
 Опирайтесь на пример к уроку
 """
+from random import random
+
+try:
+    print('Генерация целого числа')
+    start = int(input('Введите начало диапазона: '))
+    stop = int(input('Введите конец диапазона: '))
+    print(f'Случайное целое число: {int(random() * (stop - start + 1) + start)}')
+
+    print('Генерация вещественного числа')
+    start = float(input('Введите начало диапазона: '))
+    stop = float(input('Введите конец диапазона: '))
+    print(f'Случайное вещественное число: {round((random() * (stop - start + 1) + start), 2)}')
+
+    print('Генерация символа (английский алфавит)')
+    start = input('Введите начало диапазона: ').lower()
+    stop = input('Введите конец диапазона: ').lower()
+
+    print(f'Случайный символ: {chr(int(random() * (ord(stop) - ord(start) + 1) + ord(start)))}')
+except:
+    print('Неккоректный ввод')
