@@ -12,3 +12,21 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+while True:
+    try:
+        num = int(input('Введите натуральное число (для выхода введите 0): '))
+    except Exception:
+        print('Некорректный ввод')
+        continue
+    if num == 0:
+        print('Программа завершена')
+        break
+    even = 0
+    odd = 0
+    for i in str(abs(num)):
+        if int(i) % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+    print(f'В числе {num} всего {even + odd} цифр, из которых {even} четных и {odd} нечетных')
