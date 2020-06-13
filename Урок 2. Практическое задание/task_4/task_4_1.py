@@ -8,3 +8,21 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+while True:
+    try:
+        n = int(input('Введите кол-во элементов для ряда (1 -0.5 0.25 -0.125 ...), для завершения введите 0: '))
+        if n == 0:
+            print('Программа завершена')
+            break
+        if n < 0:
+            print('Отрицательное число')
+            continue
+
+        amount, element = 0, 1
+        for i in range(n):
+            amount += element
+            element /= -2
+        print(f'Сумма элементов ряда: {amount}')
+
+    except ValueError:
+        print('Некорректный ввод')
