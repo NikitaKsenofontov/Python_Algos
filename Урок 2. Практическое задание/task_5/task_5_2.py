@@ -17,3 +17,14 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def asc(i):
+    if i == 32:
+        return f'{i:5}: {chr(i)}'
+    if (i - 2) % 10 == 0:
+        return asc(i - 1) + '\n' + f'{i:5}: {chr(i)}'
+    return asc(i - 1) + f'{i:5}: {chr(i)}'
+
+
+print(asc(127))
