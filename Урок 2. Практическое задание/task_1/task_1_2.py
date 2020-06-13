@@ -33,3 +33,37 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def calculation():
+    operand = input('Операнд (+, -, *, / или 0 для выхода): ')
+    if operand == '0':
+        return 'Программа завершена'
+    elif operand != '+' and operand != '-' and operand != '*' and operand != '/':
+        print('Неккоректный ввод')
+        return calculation()
+    try:
+        num_1 = int(input('Число 1: '))
+        num_2 = int(input('Число 2: '))
+        if operand == '+':
+            print(f'Результат: {num_1 + num_2}')
+            return calculation()
+        elif operand == '-':
+            print(f'Результат: {num_1 - num_2}')
+            return calculation()
+        elif operand == '*':
+            print(f'Результат: {num_1 * num_2}')
+            return calculation()
+        else:
+            try:
+                print(f'Результат: {num_1 / num_2}')
+                return calculation()
+            except ZeroDivisionError:
+                print('Деление на 0')
+                return calculation()
+    except Exception:
+        print('Неккоректный ввод')
+        return calculation()
+
+
+print(calculation())
