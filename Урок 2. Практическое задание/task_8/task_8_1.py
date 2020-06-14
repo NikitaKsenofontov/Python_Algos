@@ -12,3 +12,22 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+try:
+    user_range = int(input('Введите кол-во последовательностей: '))
+    user_patten = int(input('Введите цифру для поиска: '))
+
+    user_patten = str(abs(user_patten))
+    count = 0
+
+    for i in range(abs(user_range)):
+        try:
+            number = int(input('Введите последовательность: '))
+            for el in str(number):
+                if el == user_patten:
+                    count += 1
+        except ValueError:
+            print('Некорректный ввод')
+
+    print(f'Цифра {user_patten} встречается в указанных последовательностях: {count} раз(а)')
+except ValueError:
+    print('Некорректный ввод')
