@@ -25,3 +25,32 @@
 
 Предприятия, с прибылью ниже среднего значения: Копыта
 """
+from collections import deque, defaultdict
+
+# nf - number of fabrics
+nf = int(input('Введите кол-во предприятий для расчета прибыли: '))
+
+fabric_names = deque()
+fabric_profit = defaultdict(list)
+fabric_sum_profit = {}
+profit_sum = 0
+profit_low_limit = []
+profit_up_limit = []
+
+for i in range(nf):
+    fabric_names.append(input(f'Введите название предприятия {i + 1}: '))
+    fabric_profit[fabric_names[i]].append([int(x) for x in input(f'Введите прыбиль предприятия {i + 1} '
+                                                                 'за каждый квартал через пробел '
+                                                                 '(всего 4 квартала): ').split()])
+
+    fabric_sum_profit[fabric_names[i]] = sum(fabric_profit[fabric_names[i]][0])
+    profit_sum += sum(fabric_profit[fabric_names[i]][0])
+
+print(f'Средняя годовая прибыль всех предприятий: {round((profit_sum / nf),1)}')
+
+for j in range(nf):
+    profit_low_limit.append(fabric_names[j]) \
+        if fabric_sum_profit[fabric_names[j]] <= (profit_sum / nf) else profit_up_limit.append(fabric_names[j])
+
+print(f'Предприятия, с прибылью выше среднего значения: {profit_up_limit if profit_up_limit else None}')
+print(f'Предприятия, с прибылью ниже среднего значения: {profit_low_limit if profit_low_limit else None}')
