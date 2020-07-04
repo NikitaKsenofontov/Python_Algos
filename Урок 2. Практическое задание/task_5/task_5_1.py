@@ -17,3 +17,8 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+i = 1
+for char in range(32, 128):
+    print(f'{char:5}: {chr(char)}') if i % 10 == 0 else print(f'{char:5}: {chr(char)}', end=' ')
+    i += 1
